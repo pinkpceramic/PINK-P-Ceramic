@@ -123,7 +123,8 @@ function injectAndExecutePremiumLoader() {
 
     loaderScreen.innerHTML = `
         <div class="loader-brand-wrapper">
-            <audio src="../assets/WhatsApp%20Audio%202026-07-05%20at%206.25.51%20PM.mpeg" autoplay >
+            <audio autoplay>
+                <source src="../assets/WhatsApp Audio 2026-07-05 at 6.25.51 PM.mpeg">
             </audio>
             <!-- Text Content Module Container Grid -->
             <div id="textGroupingElement" style="transition: opacity 0.5s ease; opacity: 1;">

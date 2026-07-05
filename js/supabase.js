@@ -5,8 +5,8 @@
  * =========================================================================
  */
 
-const SUPABASE_URL = window.ENV_SUPABASE_URL || "https://tcohvtqypkfnufivjppx.supabase.co";
-const SUPABASE_ANON_KEY = window.ENV_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjb2h2dHF5cGtmbnVmaXZqcHB4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyMjUyMTQsImV4cCI6MjA5ODgwMTIxNH0.lQfeVphiw3DPnhf3C7jhO2tzoNfQD4LcS9l_bZ9zOms";
+const SUPABASE_URL = window.ENV_SUPABASE_URL || "https://osbuqojymajkbfvumvvi.supabase.co";
+const SUPABASE_ANON_KEY = window.ENV_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zYnVxb2p5bWFqa2JmdnVtdnZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNTM5NzUsImV4cCI6MjA5ODgyOTk3NX0.scJf0_qNbk5k7xltIdBfop6Rqd1Pj3IqDlhThPsNhQk";
 
 
 export const supabaseClient = {
