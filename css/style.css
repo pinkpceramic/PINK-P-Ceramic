@@ -1,0 +1,249 @@
+/* =========================================================================
+   TILES & BATHWARE SHOWROOM - CORE STYLE ARCHITECTURE
+   FILE: css/style.css
+   ========================================================================= */
+
+@import url('variables.css');
+
+/* --- Reusable Utility Classes --- */
+.section-padding {
+    padding: 100px 8% 100px 8%;
+}
+
+.container-lux {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* --- Section Headers --- */
+.section-title-block {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    font-family: var(--font-body);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.section-main-title {
+    font-size: 2.75rem;
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-secondary);
+}
+
+/* --- Luxury Button Framework --- */
+.btn-lux {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-lux);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary-lux {
+    background-color: var(--color-primary);
+    color: var(--color-bg-pure);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-primary-lux:hover {
+    color: var(--color-primary);
+    background-color: transparent;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-secondary-lux {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+}
+
+.btn-secondary-lux:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-gold);
+}
+
+/* --- Floating Architecture (WhatsApp & Back To Top) --- */
+.floating-actions-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+
+.btn-whatsapp-float {
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: var(--radius-full);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-lux);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+}
+
+.btn-whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: #FFF;
+}
+
+.btn-top-float {
+    width: 50px;
+    height: 50px;
+    background-color: var(--glass-bg-dark);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-lux);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn-top-float.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-top-float:hover {
+    background-color: var(--color-primary);
+}
+
+.btn-top-float svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-secondary);
+    fill: none;
+    stroke-width: 2.5;
+}
+
+/* --- Shared Premium Core Components (Modal Window Setup) --- */
+.lux-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+}
+
+.lux-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lux-modal-card {
+    background: var(--color-bg-pure);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: var(--shadow-lux);
+    text-align: center;
+    transform: translateY(30px);
+    transition: transform var(--transition-lux);
+}
+
+.lux-modal-overlay.active .lux-modal-card {
+    transform: translateY(0);
+}
+
+.lux-modal-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.lux-modal-card p {
+    color: var(--color-text-muted);
+    margin-bottom: 30px;
+}
+
+.lux-modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Discover ultra-premium luxury ceramic tiles, porcelain slab floors, and elegant bathware options in our unified single-page responsive showcase."
+          name="description">
+    <title>PINK P Ceramic</title>
+
+    <!-- Design System Typography Engine -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* --- Core System Design Variables & Tokens --- */
+        :root {
+            --color-primary: #0F172A;
+            --color-secondary: #D4AF37;
+            --color-accent: #C9A227;
+            --color-bg-pure: #FFFFFF;
+            --color-bg-soft: #F8FAFC;
+            --color-text-dark: #1F2937;
+            --color-text-muted: #64748B;
+            --color-border-light: #E2E8F0;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+            --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lux: 0 20px 40px -15px rgba(15, 23, 42, 0.12);
+            --radius-sm: 4px;
+            --radius-full: 9999px;
+            --transition-lux: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-blur: blur(20px);
+        }
+
+        /* --- Global Structural Rules & Resets --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-dark);
+            background: var(--color-bg-pure);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        .section-padding {
+            padding: 90px 8%;
+        }
+
+        .container-lux {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* --- Sticky Navigation System Header --- */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--color-border-light);
+            z-index: 1000;
+            padding: 20px 8%;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* --- Luxury Button Framework --- */
+        .btn-lux {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-lux);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary-lux {
+            background: var(--color-primary);
+            color: #FFF;
+        }
+
+        .btn-primary-lux:hover {
+            background: transparent;
+            color: var(--color-primary);
+            box-shadow: 0 0 0 1px var(--color-primary);
+        }
+
+        .btn-secondary-lux {
+            background: transparent;
+            color: var(--color-secondary);
+            border: 1px solid var(--color-secondary);
+        }
+
+        .btn-secondary-lux:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        /* --- Product Catalog Layout Engine --- */
+        .catalog-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .filter-sidebar {
+            background: var(--color-bg-soft);
+            padding: 30px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border-light);
+            height: fit-content;
+            position: sticky;
+            top: 110px;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--color-primary);
+        }
+
+        .filter-select, .search-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--color-border-light);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            background: #FFF;
+            transition: var(--transition-lux);
+        }
+
+        .search-input {
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .search-input:focus {
+            border-color: var(--color-secondary);
+        }
+
+        /* --- Responsive Product Grid Matrix --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #FFF;
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition-lux);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lux);
+            border-color: var(--color-secondary);
+        }
+
+        .product-image-frame {
+            height: 260px;
+            width: 100%;
+            overflow: hidden;
+            background: #F1F5F9;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-lux);
+        }
+
+        .product-card:hover .product-image-frame img {
+            transform: scale(1.06);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-primary);
+            color: #FFF;
+            padding: 4px 10px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-meta {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-brand {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            margin: 0 0 15px 0;
+            cursor: pointer;
+            font-family: var(--font-display);
+        }
+
+        .product-spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            border-bottom: 1px dashed var(--color-border-light);
+            padding: 6px 0;
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        /* --- Reviews & Contact Terminals --- */
+        .reviews-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 50px;
+        }
+
+        .review-card {
+            background: #FFF;
+            border: 1px solid var(--color-border-light);
+            padding: 30px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border-light);
+            padding: 40px;
+            border-radius: var(--radius-sm);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================================================
+           STRICT SINGLE PAGE RESPONSIVE CROSS-BREAKPOINTS RULES
+           ========================================================================= */
+        @media (max-width: 1280px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-padding {
+                padding: 80px 5%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .reviews-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog-layout {
+                grid-template-columns: 240px 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .nav-links {
+                display: none;
+            }
+
+            /* Standard dynamic clean mobile overlay trigger rule */
+            .catalog-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .filter-group {
+                margin-bottom: 0;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 426px) {
+            .filter-sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .product-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .section-padding {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .product-image-frame {
+                height: 200px;
+            }
+        }
+
+        /* =========================================================================
+   LARGE SCREENS HIERARCHY LAYOUT FIX
+   TARGET: ACTIVE ON DESKTOPS (min-width: 1025px)
+   ========================================================================= */
+        @media (min-width: 1025px) {
+
+            /* --- FIX: The Wrapper holds the height constraint, NOT the grid directly --- */
+            .product-scroll-wrap {
+                height: 750px; /* Explicit boundary window height */
+                overflow-y: auto; /* Triggers the clean vertical scrollbar wheel */
+                overflow-x: hidden; /* Completely blocks horizontal breaks */
+                padding-right: 20px; /* Spacing buffer to separate cards from the track */
+                scroll-behavior: smooth;
+            }
+
+            /* --- The grid inside can now breathe and expand naturally to full scale --- */
+            #productGridContainer {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            /* --- Testimonials Feed Inner Scroll Containment (Stays working perfectly) --- */
+            #reviewsContainer {
+                height: 520px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding-right: 15px;
+                scroll-behavior: smooth;
+            }
+
+            /* --- Premium Minimalist Custom Scrollbar Skinning --- */
+            .product-scroll-wrap::-webkit-scrollbar,
+            #reviewsContainer::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .product-scroll-wrap::-webkit-scrollbar-track,
+            #reviewsContainer::-webkit-scrollbar-track {
+                background: var(--color-bg-soft);
+                border-radius: var(--radius-full);
+            }
+
+            .product-scroll-wrap::-webkit-scrollbar-thumb,
+            #reviewsContainer::-webkit-scrollbar-thumb {
+                background: #CBD5E1;
+                border-radius: var(--radius-full);
+                transition: background var(--transition-lux);
+            }
+
+            .product-scroll-wrap::-webkit-scrollbar-thumb:hover,
+            #reviewsContainer::-webkit-scrollbar-thumb:hover {
+                background: var(--color-secondary);
+            }
+        }
+
+        /* =========================================================================
+   PREMIUM INTERACTIVE GOLDEN STAR INTERFACE SYSTEM
+   ========================================================================= */
+        .luxury-star-rating-box {
+            display: inline-flex;
+            flex-direction: row-reverse; /* Reverses items so CSS can shade backwards using sibling selectors */
+            justify-content: flex-end;
+            gap: 8px;
+            font-size: 1.8rem; /* Premium, accessible tactile click boundary targets */
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 15px;
+        }
+
+        .gold-star-node {
+            color: #E2E8F0; /* Default unselected state: Elegant neutral platinum gray */
+            transition: color 0.15s ease, transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 1. STATE DEFINITION: Selected/Active elements set via JavaScript matching your review card colors */
+        .gold-star-node.selected,
+        .gold-star-node.selected ~ .gold-star-node {
+            color: #D4AF37 !important; /* Premium burnished gold tone index */
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.3); /* Subtle high-fidelity ambient glow */
+        }
+
+        /* 2. HOVER OVERRIDE: Lights up the target star and all items to its left instantly */
+        .luxury-star-rating-box:hover .gold-star-node:hover,
+        .luxury-star-rating-box:hover .gold-star-node:hover ~ .gold-star-node {
+            color: #FBBF24 !important; /* Shifting vibrant bright gold active hover state */
+            transform: scale(1.18) translateY(-2px); /* Premium dimensional click response popping effect */
+            text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+        }
+
+        /* 3. HOVER CLEANUP: Dim out stars to the right of the current hover target */
+        .luxury-star-rating-box:hover .gold-star-node:hover ~ .gold-star-node ~ .gold-star-node {
+            color: #D4AF37 !important;
+        }
+
+        .luxury-star-rating-box:hover .gold-star-node:has(~ .gold-star-node:hover) {
+            color: #E2E8F0 !important;
+            text-shadow: none;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Target Elements for your External Loader Component -->
+<script src="js/loader.js" type="module"></script>
+
+<!-- Sticky Navigation Bar Layout Header -->
+<header>
+    <div class="container-lux nav-container">
+        <a href="#"
+           style="font-family: var(--font-display); font-size: 1.4rem; font-weight:700; color:var(--color-primary); text-decoration:none; letter-spacing:2px;">PINK
+            P CERAMIC</a>
+        <nav class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#catalog">Collections</a>
+            <a href="#reviews">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Master Screen Section -->
+<section class="section-padding" id="hero"
+         style="background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); background-size:cover; background-position:center; min-height:85vh; display:flex; align-items:center; color:#FFF;">
+    <div class="container-lux">
+        <span style="color:var(--color-secondary); text-transform:uppercase; letter-spacing:4px; font-size:0.85rem; font-weight:600; display:block; margin-bottom:15px;">Transform Every Space</span>
+        <h1 style="font-size:3.5rem; max-width:700px; line-height:1.2; margin-bottom:25px;">Luxury Tiles & Premium
+            Sanitary WARE</h1>
+        <p style="color:#94A3B8; max-width:550px; font-weight:300; font-size:1.1rem; margin-bottom:40px;">Curated
+            architectural design surfaces sourced from elite global production centers.</p>
+        <div style="display:flex; gap:15px; flex-wrap:wrap;">
+            <a class="btn-lux btn-primary-lux" href="#catalog"
+               style="background:var(--color-secondary); color:var(--color-primary);">Explore Grid</a>
+            <a class="btn-lux btn-secondary-lux" href="#contact" style="color:#FFF; border-color:#FFF;">Connect Desk</a>
+        </div>
+    </div>
+</section>
+
+<!-- Live Filtering Product Catalog Section -->
+<section class="section-padding container-lux" id="catalog">
+    <div style="text-align:center; margin-bottom:50px;">
+        <h2 style="font-size:2.5rem; color:var(--color-primary); position:relative; display:inline-block; padding-bottom:15px;">
+            Bespoke Inventories</h2>
+
+        <h2>Designed to Inspire</h2>
+
+        <h2>Premium Tiles & Sanitary Products for Modern Lining</h2>
+    </div>
+
+    <!-- Target Elements for your External Products Component Filter Hooks -->
+    <input class="search-input" id="productSearch"
+           placeholder="Search collection matrices by name or brand instantly..."
+           type="text">
+
+    <div class="catalog-layout">
+        <aside class="filter-sidebar">
+            <div class="filter-group">
+                <h4>Category</h4>
+                <select class="filter-select" id="filterCategory">
+                    <option value="all">All Categories</option>
+                    <option value="floor-tiles">Floor Tiles</option>
+                    <option value="wall-tiles">Wall Tiles</option>
+                    <option value="parking-tiles">Parking Tiles</option>
+                    <option value="swimmingpool-series">Swimmingpool series</option>
+                    <option value="porcelain">Porcelain</option>
+                    <option value="sanitary">Sanitary</option>
+                    <option value="step-riser">Step riser</option>
+                    <option value="quartz-sink">Quartz sink</option>
+                    <option value="elevation-tile">Elevation Tile</option>
+                    <option value="double-charge">Double Charge</option>
+                    <option value="mosaic-tile">Mosaic Tile</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <h4>Finish</h4>
+                <select class="filter-select" id="filterFinish">
+                    <option value="all">All Finishes</option>
+                    <option value="polished-glossy">Polished Glossy</option>
+                    <option value="matt-satin">Matt & Satin</option>
+                    <option value="carving-high">Carving HD</option>
+                    <option value="high-gloss">High Gloss</option>
+                    <option value="sugar">Sugar</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <h4>Dimensions</h4>
+                <select class="filter-select" id="filterSize">
+                    <option value="all">All Sizes</option>
+                    <option value="300x600 mm">300x600 mm</option>
+                    <option value="600x600 mm">600x600 mm</option>
+                    <option value="600x1200 mm">600x1200 mm</option>
+                    <option value="800x1600 mm">800x1600 mm</option>
+                    <option value="800x2400 mm">800x2400 mm</option>
+                    <option value="800x3200 mm">800x3200 mm</option>
+                    <option value="1200x1800 mm">1200x1800 mm</option>
+                    <option value="1200x3200 mm">1200x3200 mm</option>
+                    <option value="1200x2400 mm">1200x2400 mm</option>
+                    <option value="1200x2800 mm">1200x2800 mm</option>
+                </select>
+            </div>
+        </aside>
+
+        <div class="product-scroll-wrap">
+            <section class="product-grid" id="productGridContainer">
+                <!-- Data stream target slot rendered via js/products.js -->
+            </section>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section-padding" id="reviews" style="background: var(--color-bg-soft);">
+    <div class="container-lux">
+        <div style="text-align:center; margin-bottom:50px;">
+            <h2 style="font-size:2.5rem; color:var(--color-primary);">Verified Testimonials</h2>
+        </div>
+        <div class="reviews-layout">
+            <!-- Target Elements for your External Reviews Grid Render Hook -->
+            <div id="reviewsContainer"></div>
+
+            <div class="contact-form" style="background:#FFF;">
+                <h3 style="margin-bottom:20px; font-family:var(--font-display);">Submit Impression</h3>
+                <form id="reviewSubmissionForm">
+                    <input class="filter-select" id="revName" placeholder="Name" required style="margin-bottom:15px;"
+                           type="text">
+                    <input class="filter-select" id="revCity" placeholder="City" required style="margin-bottom:15px;"
+                           type="text">
+                    <textarea class="filter-select" id="revComment" placeholder="Your experience..." required
+                              rows="4" style="margin-bottom:15px;"></textarea>
+
+                    <div class="form-group">
+                        <label style="display: block; margin-bottom: 8px; color: var(--color-text-dark); font-weight: 500; font-size: 0.9rem;">Your
+                            Experience</label>
+
+                        <!-- GOLDEN INTERACTIVE STAR SYSTEM ROW -->
+                        <div class="luxury-star-rating-box" id="formStarRatingGroup">
+                            <span class="gold-star-node" data-value="5">★</span>
+                            <span class="gold-star-node" data-value="4">★</span>
+                            <span class="gold-star-node" data-value="3">★</span>
+                            <span class="gold-star-node" data-value="2">★</span>
+                            <span class="gold-star-node" data-value="1">★</span>
+                        </div>
+
+                        <!-- Hidden input array field to securely store the value for the database function -->
+                        <input id="revRatingInput" type="hidden" value="5">
+                    </div>
+                    <button class="btn-lux btn-primary-lux" style="width:100%;" type="submit">Post Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Terminal Section -->
+<section class="section-padding container-lux" id="contact">
+    <div class="contact-grid">
+        <div>
+            <h2 style="font-size:2.5rem; margin-bottom:20px;">Flagship Galleria</h2>
+            <p style="color:var(--color-text-muted); margin-bottom:30px;">Connect directly regarding wholesale
+                estimates, technical specifications, and architectural lookup approvals.</p>
+            <div style="margin-bottom:15px;"><strong>Phone support:</strong> +91 77779 45744</div>
+            <div><strong>Mail desk:</strong> pinkpceramic@gmail.com</div>
+        </div>
+        <!-- Target Elements for your External Contact Logic Engine Form Hook -->
+        <form class="contact-form" id="contactInquiryForm">
+            <h3 style="margin-bottom:20px; color:var(--color-primary); font-family:var(--font-display);">Send Project
+                Message</h3>
+            <input class="filter-select" id="infName" placeholder="Your Name" required style="margin-bottom:15px;"
+                   type="text">
+            <input class="filter-select" id="infEmail" placeholder="Email Address" required
+                   style="margin-bottom:20px;" type="email">
+            <textarea class="filter-select" id="infMessage" placeholder="Project Description & Estimates Required..."
+                      required rows="5"
+                      style="margin-bottom:15px;margin-top:15px"></textarea>
+            <button class="btn-lux btn-primary-lux" id="infBtn" style="width:100%;" type="submit">Transmit Message
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Global Layout Modular Integration Layer Hooks -->
+<script src="js/main.js" type="module"></script>
+<script src="js/products.js" type="module"></script>
+<script src="js/reviews.js" type="module"></script>
+<script src="js/contact.js" type="module"></script>
+
+</body>
+</html>

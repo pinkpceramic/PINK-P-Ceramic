@@ -1,0 +1,208 @@
+/* =========================================================================
+   TILES & BATHWARE SHOWROOM - COMPLETE RESPONSIVE DESIGN TRANSLATIONS
+   FILE: css/responsive.css
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. ULTRA-WIDE SCREENS & 4K DISPLAYS (1920px and above)
+   ------------------------------------------------------------------------- */
+@media (min-width: 1920px) {
+    .container-lux {
+        max-width: 1800px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* Elevate to 4 columns on large screens */
+        gap: 40px;
+    }
+
+    .section-main-title {
+        font-size: 3.5rem;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   2. STANDARD DESKTOPS & LAPTOPS (1440px - 1280px)
+   ------------------------------------------------------------------------- */
+@media (max-width: 1440px) {
+    .section-padding {
+        padding: 90px 6% 90px 6%;
+    }
+
+    .product-detail-layout {
+        gap: 40px;
+    }
+
+    .main-display-frame {
+        height: 480px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .section-padding {
+        padding: 80px 5% 80px 5%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .gallery-masonry {
+        column-count: 3;
+        column-gap: 20px;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   3. TABLETS & SMALL LAPTOPS (1024px)
+   ------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .catalog-layout {
+        grid-template-columns: 240px 1fr; /* Narrow the sidebar slightly */
+        gap: 30px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Collapse grid to 2 columns */
+    }
+
+    .gallery-masonry {
+        column-count: 2; /* Adjust inspiration masonry layout */
+    }
+
+    .reviews-layout {
+        grid-template-columns: 1fr; /* Review form stack layout structure */
+        gap: 40px;
+    }
+
+    .submission-form-wrapper {
+        position: static; /* Disable sticky sidebar tracking */
+        width: 100%;
+    }
+
+    .product-main-name {
+        font-size: 2.5rem;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   4. SMALL TABLETS & MOBILE LANDSCAPE (768px)
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .section-main-title {
+        font-size: 2.25rem;
+    }
+
+    .catalog-layout {
+        grid-template-columns: 1fr; /* Push filters layout to top single column stack */
+    }
+
+    .filter-sidebar {
+        position: static;
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Align filters horizontally */
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .filter-group {
+        margin-bottom: 0;
+    }
+
+    .product-detail-layout {
+        grid-template-columns: 1fr; /* Single column view for specifications */
+        gap: 40px;
+    }
+
+    .detail-content-panel {
+        padding-left: 0;
+    }
+
+    .main-display-frame {
+        height: 400px;
+    }
+
+    .about-story-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .story-img-composition {
+        display: flex;
+        justify-content: center;
+    }
+
+    .story-img-main {
+        width: 100%;
+    }
+
+    .story-img-offset {
+        display: none; /* Hide decorative overlaps on mobile screen frames */
+    }
+
+    .counter-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+        padding: 40px 5%;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   5. SMARTPHONES & MOBILE PORTRAIT (425px - 375px)
+   ------------------------------------------------------------------------- */
+@media (max-width: 425px) {
+    .filter-sidebar {
+        grid-template-columns: 1fr; /* Stack standard dropdown metrics list vertical */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column card listing views */
+    }
+
+    .gallery-masonry {
+        column-count: 1; /* Masonry turns into continuous elegant feed */
+    }
+
+    .counter-strip {
+        grid-template-columns: 1fr; /* Target milestone numbers stack vertically */
+    }
+
+    .product-main-name {
+        font-size: 2rem;
+    }
+
+    .action-button-deck {
+        grid-template-columns: 1fr; /* CTA layout buttons fill structural spaces full-width */
+        gap: 15px;
+    }
+
+    .btn-lux {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   6. MICRO SMARTPHONES & LEGACY COMPACT DEVS (320px)
+   ------------------------------------------------------------------------- */
+@media (max-width: 320px) {
+    .section-main-title {
+        font-size: 1.85rem;
+    }
+
+    .main-display-frame {
+        height: 280px;
+    }
+
+    .thumb-frame {
+        width: 70px;
+        height: 70px;
+    }
+}
