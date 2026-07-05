@@ -47,6 +47,8 @@ async function renderReviewsSection() {
         return;
     }
 
+    const topReview = approvedReviews.slice(0,5);
+
     // Paint the data cards into the UI container slot
     container.innerHTML = approvedReviews.map(review => {
         const score = parseInt(review.rating, 10) || 5;
@@ -66,6 +68,18 @@ async function renderReviewsSection() {
             </article>
         `;
     }).join('');
+
+
+    if (approvedReviews.length > 5) {
+        container.innerHTML += `
+            <div style="text-align: center; margin-top: 25px; padding-bottom: 10px;">
+                <a href="reviews-showroom.html" class="btn-lux btn-secondary-lux" style="display: inline-block; text-decoration: none; padding: 12px 30px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
+                    More Reviews & Write Yours →
+                </a>
+            </div>
+        `;
+    }
+
 }
 
 

@@ -5,8 +5,8 @@
  * =========================================================================
  */
 
-const SUPABASE_URL = window.ENV_SUPABASE_URL || "https://osbuqojymajkbfvumvvi.supabase.co";
-const SUPABASE_ANON_KEY = window.ENV_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zYnVxb2p5bWFqa2JmdnVtdnZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNTM5NzUsImV4cCI6MjA5ODgyOTk3NX0.scJf0_qNbk5k7xltIdBfop6Rqd1Pj3IqDlhThPsNhQk";
+const SUPABASE_URL =  "https://osbuqojymajkbfvumvvi.supabase.co";
+const SUPABASE_ANON_KEY =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zYnVxb2p5bWFqa2JmdnVtdnZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNTM5NzUsImV4cCI6MjA5ODgyOTk3NX0.scJf0_qNbk5k7xltIdBfop6Rqd1Pj3IqDlhThPsNhQk";
 
 
 export const supabaseClient = {
@@ -171,8 +171,8 @@ export async function uploadReviewViaRPC(reviewFields) {
  */
 export async function uploadProjectViaRPC(projectData) {
     // Ensure this matches the RPC endpoint schema route perfectly
-
-    console.log(projectData)
+    console.log(projectData);
+    
 
     const projectRpcUrl = `${SUPABASE_URL}/rest/v1/rpc/upload_new_project`;
 

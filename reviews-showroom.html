@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Testimonials - PINKP CERAMICS</title>
+    <!-- Include your corporate fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Import your core luxury design tokens --- */
+        :root {
+            --color-primary: #0F172A;
+            --color-secondary: #D4AF37;
+            --color-bg-soft: #F8FAFC;
+            --color-text-dark: #334155;
+            --color-text-muted: #64748B;
+            --font-display: 'Playfair Display', serif;
+            --font-sans: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #FFFFFF;
+            color: var(--color-text-dark);
+            margin: 0; padding: 0;
+        }
+
+        /* --- Minimal Navigation Bar Bar --- */
+        .sub-nav {
+            border-bottom: 1px solid #E2E8F0;
+            padding: 20px;
+            background: white;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .sub-nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .back-link {
+            text-decoration: none; color: var(--color-text-muted);
+            font-size: 0.9rem; transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--color-secondary); }
+
+        /* --- Split Grid Layout --- */
+        .showroom-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            max-width: 1200px; margin: 60px auto;
+            gap: 50px; padding: 0 20px;
+        }
+
+        .archive-section h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem; margin-bottom: 30px;
+        }
+
+        /* --- Review Card Architecture --- */
+        .full-archive-box {
+            display: flex; flex-direction: column; gap: 20px;
+        }
+        .review-card {
+            background: var(--color-bg-soft);
+            padding: 25px; border-radius: 8px;
+            border-left: 3px solid var(--color-secondary);
+        }
+
+        /* --- Submission Form Styling --- */
+        .form-sticky-box {
+            position: sticky; top: 120px;
+            background: white; padding: 35px;
+            border-radius: 12px; border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .form-sticky-box h2 {
+            font-family: var(--font-display);
+            margin-top: 0; margin-bottom: 25px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 500; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #CBD5E1;
+            border-radius: 6px; box-sizing: border-box; font-family: var(--font-sans);
+        }
+
+        /* --- Golden Star System --- */
+        .luxury-star-rating-box { display: inline-flex; flex-direction: row-reverse; gap: 6px; font-size: 1.6rem; cursor: pointer; margin-bottom: 15px; }
+        .gold-star-node { color: #E2E8F0; transition: color 0.15s; }
+        .gold-star-node.selected, .gold-star-node.selected ~ .gold-star-node { color: #D4AF37 !important; }
+        .luxury-star-rating-box:hover .gold-star-node:hover, .luxury-star-rating-box:hover .gold-star-node:hover ~ .gold-star-node { color: #FBBF24 !important; }
+
+        .btn-submit {
+            background: var(--color-primary); color: white; border: none;
+            width: 100%; padding: 14px; border-radius: 6px; font-weight: 600;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .btn-submit:hover { background: var(--color-secondary); }
+
+        /* --- Responsive Responders --- */
+        @media (max-width: 968px) {
+            .showroom-grid { grid-template-columns: 1fr; }
+            .form-sticky-box { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sub-nav">
+        <div class="sub-nav-container">
+            <div style="font-family: var(--font-display); font-weight:700; font-size:1.3rem;">PINKP <span style="color:var(--color-secondary); font-weight:400;">CERAMICS</span></div>
+            <a href="index.html" class="back-link">← Return to Main Site</a>
+        </div>
+    </nav>
+
+    <main class="showroom-grid">
+        <!-- LEFT COLUMN: All Client Reviews Feed -->
+        <section class="archive-section">
+            <h1>Client Guestbook Archive</h1>
+            <div class="full-archive-box" id="fullShowroomReviewsContainer">
+                <div style="color: var(--color-text-muted);">Syncing secure database review files...</div>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: Interactive Form -->
+        <section class="form-section">
+            <div class="form-sticky-box">
+                <h2>Share Your Experience</h2>
+                <form id="reviewSubmissionForm">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" id="revName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Location / City</label>
+                        <input type="text" id="revCity" required placeholder="Mumbai, MH">
+                    </div>
+                    <div class="form-group">
+                        <label>Overall Assessment</label>
+                        <div class="luxury-star-rating-box" id="formStarRatingGroup">
+                            <span class="gold-star-node" data-value="5">★</span>
+                            <span class="gold-star-node" data-value="4">★</span>
+                            <span class="gold-star-node" data-value="3">★</span>
+                            <span class="gold-star-node" data-value="2">★</span>
+                            <span class="gold-star-node" data-value="1">★</span>
+                        </div>
+                        <input type="hidden" id="revRatingInput" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label>Review Comment</label>
+                        <textarea id="revComment" rows="4" required placeholder="Describe our tile quality or service showroom assistance..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Post Showroom Endorsement</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Wire up the Supabase pipeline scripts -->
+    <script type="module">
+        import { fetchReviewsFromRPC, uploadReviewViaRPC } from './js/supabase.js';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderFullShowroomReviews();
+            initializeGoldenStarsEngine();
+            document.getElementById('reviewSubmissionForm').addEventListener('submit', handleFormTransmission);
+        });
+
+        // Re-use your interactive star mechanism code cleanly
+        function initializeGoldenStarsEngine() {
+            const box = document.getElementById('formStarRatingGroup');
+            const hiddenInput = document.getElementById('revRatingInput');
+            const allStars = box.querySelectorAll('.gold-star-node');
+            allStars.forEach(s => s.classList.add('selected'));
+            allStars.forEach(star => {
+                star.addEventListener('click', () => {
+                    const val = parseInt(star.getAttribute('data-value'), 10);
+                    hiddenInput.value = val;
+                    allStars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value'), 10) <= val) s.classList.add('selected');
+                        else s.classList.remove('selected');
+                    });
+                });
+            });
+        }
+
+        async function renderFullShowroomReviews() {
+            const container = document.getElementById('fullShowroomReviewsContainer');
+            const data = await fetchReviewsFromRPC();
+            if (!data || data.length === 0) {
+                container.innerHTML = `<div>No reviews available yet.</div>`;
+                return;
+            }
+            container.innerHTML = data.map(rev => {
+                const score = parseInt(rev.rating, 10) || 5;
+                return `
+                    <article class="review-card">
+                        <div style="color: #D4AF37; margin-bottom: 10px;">${'★'.repeat(score)}${'☆'.repeat(5-score)}</div>
+                        <p style="font-style: italic; margin:0; color:#334155;">"${rev.comment}"</p>
+                        <div style="margin-top:10px; font-size:0.85rem; font-weight:600;">${rev.name} - <span style="color:#64748B; font-weight:400;">${rev.city}</span></div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        async function handleFormTransmission(e) {
+            e.preventDefault();
+            const packet = {
+                name: document.getElementById('revName').value,
+                city: document.getElementById('revCity').value,
+                rating: parseInt(document.getElementById('revRatingInput').value, 10) || 5,
+                comment: document.getElementById('revComment').value
+            };
+            const status = await uploadReviewViaRPC(packet);
+            if (status.success) {
+                alert(status.message);
+                e.target.reset();
+                document.getElementById('revRatingInput').value = "5";
+                document.querySelectorAll('.gold-star-node').forEach(s => s.classList.add('selected'));
+                renderFullShowroomReviews();
+            } else {
+                alert(`Error: ${status.message}`);
+            }
+        }
+    </script>
+</body>
+</html>
