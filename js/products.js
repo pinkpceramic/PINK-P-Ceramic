@@ -53,6 +53,7 @@ async function executeCatalogDataSync() {
     `;
 
     const productJsonArray = await callCatalogRPC(activeStateQueryTokens);
+    console.log(productJsonArray)
 
     if (!productJsonArray || productJsonArray.length === 0) {
         gridContainer.innerHTML = `
@@ -68,28 +69,28 @@ async function executeCatalogDataSync() {
 
         // Escape string data formatting parameters to prevent broken HTML string terminations inside inline event injections
         const cleanName = item.name.replace(/'/g, "\\'");
-        const cleanBrand = item.brand.replace(/'/g, "\\'");
+        // const cleanBrand = item.brand.replace(/'/g, "\\'");
 
         return `
             <article class="product-card">
-                <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}', '${cleanBrand}' , '${item.size}' , '${item.finish}' , '${item.category_name}'})">
-                    <span class="product-badge">${item.brand}</span>
+                <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}' , '${item.size}' , '${item.finish}' , '${item.category_name}'})">
+                    <span class="product-badge">Pink P Ceramic</span>
                     <img src="${primaryImage}" alt="${item.name} Presentation" loading="lazy">
                 </div>
                 <div class="product-meta">
                     <span class="product-brand">${item.material} - ${item.category_name}</span>
-                    <h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}', '${cleanBrand}','${item.size}' , '${item.finish}' , '${item.category_name}'})">${item.name}</h3>
+                    <h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}'})">${item.name}</h3>
                     <div class="product-spec-row"><span>Dimensions:</span> <strong>${item.size}</strong></div>
                     <div class="product-spec-row"><span>Surface Style:</span> <strong style="text-transform:capitalize;">${item.finish}</strong></div>
                     <div class="product-actions">
-                        <button class="btn-lux btn-primary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('quote', '${cleanName}', '${cleanBrand}','${item.size}' , '${item.finish}' , '${item.category_name}')">Get Quote</button>
-                        <button class="btn-lux btn-secondary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}', '${cleanBrand}','${item.size}' , '${item.finish}' , '${item.category_name}')">View Details</button>
+                        <button class="btn-lux btn-secondary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">View more catalogue</button>
                     </div>
                 </div>
             </article>
         `;
     }).join('');
 }
+                        // <button class="btn-lux btn-primary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('quote', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">Get Quote</button>
 
 function attachInteractiveFilters() {
     const searchBar = document.getElementById('productSearch');
