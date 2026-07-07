@@ -25,7 +25,7 @@ const TARGET_WHATSAPP_NUMBER = "7777945744"; // <-- PLACE YOUR MOBILE PHONE NUMB
  * Utility helper that automatically structures your store text parameters
  * and opens the native WhatsApp chat window frame layout securely.
  */
-function routeLeadToWhatsAppChat(actionType, productTitle, productBrand, size, finish, category) {
+function routeLeadToWhatsAppChat(actionType, productTitle, size, finish, category) {
     let customTextBlueprint = "";
 
 
@@ -65,6 +65,7 @@ async function executeCatalogDataSync() {
     }
 
     gridContainer.innerHTML = productJsonArray.map(item => {
+
         const primaryImage = (item.images && item.images[0]) ? item.images[0] : 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80';
 
         // Escape string data formatting parameters to prevent broken HTML string terminations inside inline event injections
