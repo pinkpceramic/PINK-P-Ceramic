@@ -35,11 +35,14 @@ function routeLeadToWhatsAppChat(actionType, productTitle, size, finish, categor
         customTextBlueprint = `Hello PINK P Ceramic, I would like to tiles please share your price related to this ${size} , ${category} and ${finish}`;
     }
 
-    const secureUrlEncodedString = encodeURIComponent(customTextBlueprint);
-    const nativeWhatsAppGatewayUrl = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=${secureUrlEncodedString}`;
+    // const secureUrlEncodedString = encodeURIComponent(customTextBlueprint);
+    // const nativeWhatsAppGatewayUrl = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=${secureUrlEncodedString}`;
 
     // Open in a fresh browser workspace tab to preserve the single-page app state in the background
-    window.open(nativeWhatsAppGatewayUrl, '_blank');
+    // window.open(nativeWhatsAppGatewayUrl, '_blank');
+
+    window.location.href = `whatsapp://send?phone=${TARGET_WHATSAPP_NUMBER}&text=` +
+        encodeURIComponent(customTextBlueprint)
 }
 
 async function executeCatalogDataSync() {
