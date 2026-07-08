@@ -73,7 +73,7 @@ async function renderReviewsSection() {
     if (approvedReviews.length > 5) {
         container.innerHTML += `
             <div style="text-align: center; margin-top: 25px; padding-bottom: 10px;">
-                <a href="./html/reviews-showroom.html" class="btn-lux btn-secondary-lux" style="display: inline-block; text-decoration: none; padding: 12px 30px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
+                <a href="../html/reviews-showroom.html" class="btn-lux btn-secondary-lux" style="display: inline-block; text-decoration: none; padding: 12px 30px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
                     More Reviews & Write Yours →
                 </a>
             </div>
