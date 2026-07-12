@@ -228,7 +228,7 @@
             overflow: hidden;
             background: #F1F5F9;
             position: relative;
-            cursor: pointer;
+            /*cursor: pointer;*/
         }
 
         .product-image-frame img {
@@ -507,6 +507,74 @@
             text-shadow: none;
             transform: scale(1);
         }
+
+
+        /* =========================================================================
+   MOBILE & TABLET SYSTEMS CAROUSEL FULL-WIDTH CONSTRAINTS
+   TARGET: ACTIVE ON SCREENS (768px and below)
+   ========================================================================= */
+        @media (max-width: 768px) {
+
+            /* Force parent components to break container locks for true edge-to-edge space */
+            .catalog-layout {
+                display: block !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* --- The Scroll Window Container Shell --- */
+            .product-scroll-wrap {
+                width: 100vw !important;     /* Forces container to span exactly 100% of the viewport width */
+                position: relative;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw !important; /* Pulls the block out of parent column paddings completely */
+                margin-right: -50vw !important;
+                height: auto;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding-bottom: 25px;
+                display: block;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+
+            /* --- The flex timeline runner strip --- */
+            #productGridContainer {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 20px;
+                width: max-content;
+                /* Padding matches layout edges so the first card lines up but allows scrolling off-screen */
+                padding: 10px 20px 10px 20px !important;
+            }
+
+            /* --- Universal Carousel Product Card Footprint --- */
+            #productGridContainer .product-card {
+                width: 82vw !important;     /* Card takes up most of the screen width */
+                max-width: 320px;           /* Prevents cards from getting excessively large on wide tablets */
+                flex-shrink: 0 !important;
+                scroll-snap-align: center;  /* Centers the card perfectly in the mobile view when touch rests */
+                margin-bottom: 0 !important;
+            }
+        }
+
+        /* =========================================================================
+           LARGE SMARTPHONES PORTRAIT SPECIFICS (425px and below)
+           ========================================================================= */
+        @media (max-width: 425px) {
+            #productGridContainer .product-card {
+                width: 85vw !important;     /* Leaves exactly 15% view preview gap so next tile peaks in */
+            }
+
+            #productGridContainer {
+                gap: 15px;
+                padding: 10px 15px !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -587,9 +655,9 @@
                 <h4>Finish</h4>
                 <select class="filter-select" id="filterFinish">
                     <option value="all">All Finishes</option>
-                    <option value="polished-glossy">Polished Glossy</option>
-                    <option value="matt-satin">Matt & Satin</option>
-                    <option value="carving-high">Carving HD</option>
+                    <option value="glossy">Glossy</option>
+                    <option value="matt">Matt</option>
+                    <option value="carving">Carving</option>
                     <option value="super-high-gloss">Super High Gloss</option>
                     <option value="sugar">Sugar</option>
                 </select>
