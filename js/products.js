@@ -134,7 +134,7 @@ async function executeCatalogDataSync() {
                 <article class="product-card">
                     <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">
                         <span class="product-badge">Pink-P Ceramic</span>
-                        <img src="${primaryImage}" alt="${item.name} Presentation" loading="lazy">
+                        <img src="${primaryImage}" alt="${item.name} Presentation">
                     </div>
                     <div class="product-meta">
                         <span class="product-brand">${item.category_name}</span>
