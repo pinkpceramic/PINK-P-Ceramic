@@ -402,9 +402,13 @@
             }
         }
 
-        @media (max-width: 320px) {
+        @media (max-width: 321px) {
             .product-image-frame {
                 height: 200px;
+            }
+
+            .review-card {
+                padding: 17px;
             }
         }
 
@@ -725,7 +729,7 @@
             }
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 426px) {
             .info-main-title { font-size: 2rem; }
             .counter-metrics-grid {
                 flex-direction: column; /* Stack data numbers vertically on thin screens */
@@ -735,6 +739,124 @@
             .metric-number-wrapper { font-size: 2.6rem; }
             .portrait-video-frame {
                 max-width: 280px; /* Slims down player footbox profile on phones */
+            }
+        }
+
+        /* =========================================================================
+   TOP COMPACT HORIZONTAL FILTER STYLE LAYOUTS
+   ========================================================================= */
+        .top-filter-bar {
+            display: flex;
+            gap: 20px;
+            background: var(--color-bg-soft);
+            padding: 25px 30px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border-light);
+            margin-bottom: 50px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .top-filter-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .top-filter-item label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Category Collection Split Lane Formats */
+        .catalog-category-block {
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .category-lane-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            padding-left: 5px;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        /* Clear out the old aside layout grid rules to build full width runways */
+        .catalog-layout {
+            display: block !important;
+        }
+
+        /* =========================================================================
+           ADAPTIVE DESIGN: HORIZONTAL SWIPING LINES ON MOBILE FOR INDIVIDUAL CATEGORIES
+           ========================================================================= */
+        @media (max-width: 768px) {
+            .top-filter-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .top-filter-item {
+                width: 100%;
+            }
+
+            .product-scroll-wrap {
+                width: 100vw !important;
+                position: relative;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw !important;
+                margin-right: -50vw !important;
+                height: auto;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding-bottom: 20px;
+                display: block;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+
+            .product-grid {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 20px;
+                width: max-content;
+                padding: 10px 20px !important;
+            }
+
+            .product-grid .product-card {
+                width: 82vw !important;
+                max-width: 300px;
+                flex-shrink: 0 !important;
+                scroll-snap-align: center;
+                margin-bottom: 0 !important;
+            }
+        }
+
+        /* Ensure the Specialty collection block handles responsively like other collections */
+        #block-specialty-tiles {
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            #floorTilesContainer,
+            #wallTilesContainer,
+            #sanitaryContainer,
+            #specialtyTilesContainer {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 20px;
+                width: max-content;
+                padding: 10px 20px !important;
             }
         }
     </style>
@@ -776,82 +898,102 @@
     </div>
 </section>
 
-<!-- Live Filtering Product Catalog Section -->
 <section class="section-padding container-lux" id="catalog">
     <div style="text-align:center; margin-bottom:50px;">
         <h2 style="font-size:2.5rem; color:var(--color-primary); position:relative; display:inline-block; padding-bottom:15px;">
             Bespoke Inventories</h2>
-
         <h2>Designed to Inspire</h2>
-
         <h2>Premium Tiles & Sanitary Products for Modern Lining</h2>
     </div>
 
-    <!-- Target Elements for your External Products Component Filter Hooks -->
     <input class="search-input" id="productSearch"
            placeholder="Search collection matrices by name or brand instantly..."
            type="text">
 
-    <div class="catalog-layout">
-        <aside class="filter-sidebar">
-            <div class="filter-group">
-                <h4>Category</h4>
-                <select class="filter-select" id="filterCategory">
-                    <option value="all">All Categories</option>
-                    <option value="floor-tiles">Floor Tiles</option>
-                    <option value="wall-tiles">Wall Tiles</option>
-                    <option value="parking-tiles">Parking Tiles</option>
-                    <option value="swimmingpool-series">Swimmingpool series</option>
-                    <option value="porcelain">Porcelain</option>
-                    <option value="sanitary">Sanitary</option>
-                    <option value="step-riser">Step riser</option>
-                    <option value="quartz-sink">Quartz sink</option>
-                    <option value="elevation-tile">Elevation Tile</option>
-                    <option value="double-charge">Double Charge</option>
-                    <option value="mosaic-tile">Mosaic Tile</option>
-                    <option value="nano-tile">Nano Tile</option>
-                    <option value="special-color-series-moroccan">Special color series moroccan</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <h4>Finish</h4>
-                <select class="filter-select" id="filterFinish">
-                    <option value="all">All Finishes</option>
-                    <option value="glossy">Glossy</option>
-                    <option value="matt">Matt</option>
-                    <option value="carving">Carving</option>
-                    <option value="super-high-gloss">Super High Gloss</option>
-                    <option value="sugar">Sugar</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <h4>Dimensions</h4>
-                <select class="filter-select" id="filterSize">
-                    <option value="all">All Sizes</option>
-                    <option value="300x450 mm">300x450 mm</option>
-                    <option value="300x600 mm">300x600 mm</option>
-                    <option value="600x600 mm">600x600 mm</option>
-                    <option value="600x900 mm">600x900 mm</option>
-                    <option value="600x1000 mm">600x1000 mm</option>
-                    <option value="600x1200 mm">600x1200 mm</option>
-                    <option value="800x800 mm">800x800 mm</option>
-                    <option value="800x1600 mm">800x1600 mm</option>
-                    <option value="800x2400 mm">800x2400 mm</option>
-                    <option value="800x3200 mm">800x3200 mm</option>
-                    <option value="1000x1000 mm">1000x1000 mm</option>
-                    <option value="1200x1800 mm">1200x1800 mm</option>
-                    <option value="1200x3200 mm">1200x3200 mm</option>
-                    <option value="1200x2400 mm">1200x2400 mm</option>
-                    <option value="1200x2800 mm">1200x2800 mm</option>
-                </select>
-            </div>
-        </aside>
-
-        <div class="product-scroll-wrap">
-            <section class="product-grid" id="productGridContainer">
-                <!-- Data stream target slot rendered via js/products.js -->
-            </section>
+    <div class="top-filter-bar">
+        <div class="top-filter-item">
+            <label>Category</label>
+            <select class="filter-select" id="filterCategory">
+                <option value="all">All Categories</option>
+                <option value="floor-tiles">Floor Tiles</option>
+                <option value="wall-tiles">Wall Tiles</option>
+                <option value="parking-tiles">Parking Tiles</option>
+                <option value="swimmingpool-series">Swimmingpool series</option>
+                <option value="porcelain">Porcelain</option>
+                <option value="sanitary">Sanitary</option>
+                <option value="step-riser">Step riser</option>
+                <option value="quartz-sink">Quartz sink</option>
+                <option value="elevation-tile">Elevation Tile</option>
+                <option value="double-charge">Double Charge</option>
+                <option value="mosaic-tile">Mosaic Tile</option>
+                <option value="nano-tile">Nano Tile</option>
+                <option value="special-color-series-moroccan">Special color series moroccan</option>
+            </select>
         </div>
+        <div class="top-filter-item">
+            <label>Finish</label>
+            <select class="filter-select" id="filterFinish">
+                <option value="all">All Finishes</option>
+                <option value="glossy">Glossy</option>
+                <option value="matt">Matt</option>
+                <option value="carving">Carving</option>
+                <option value="super-high-gloss">Super High Gloss</option>
+                <option value="sugar">Sugar</option>
+            </select>
+        </div>
+        <div class="top-filter-item">
+            <label>Dimensions</label>
+            <select class="filter-select" id="filterSize">
+                <option value="all">All Sizes</option>
+                <option value="300x450 mm">300x450 mm</option>
+                <option value="300x600 mm">300x600 mm</option>
+                <option value="600x600 mm">600x600 mm</option>
+                <option value="600x900 mm">600x900 mm</option>
+                <option value="600x1000 mm">600x1000 mm</option>
+                <option value="600x1200 mm">600x1200 mm</option>
+                <option value="800x800 mm">800x800 mm</option>
+                <option value="800x1600 mm">800x1600 mm</option>
+                <option value="800x2400 mm">800x2400 mm</option>
+                <option value="800x3200 mm">800x3200 mm</option>
+                <option value="1000x1000 mm">1000x1000 mm</option>
+                <option value="1200x1800 mm">1200x1800 mm</option>
+                <option value="1200x3200 mm">1200x3200 mm</option>
+                <option value="1200x2400 mm">1200x2400 mm</option>
+                <option value="1200x2800 mm">1200x2800 mm</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="categorized-catalog-space">
+
+        <div class="catalog-category-block" id="block-floor-tiles">
+            <h3 class="category-lane-title">Floor Tiles</h3>
+            <div class="product-scroll-wrap">
+                <div class="product-grid" id="floorTilesContainer"></div>
+            </div>
+        </div>
+
+        <div class="catalog-category-block" id="block-wall-tiles">
+            <h3 class="category-lane-title">Wall Tiles</h3>
+            <div class="product-scroll-wrap">
+                <div class="product-grid" id="wallTilesContainer"></div>
+            </div>
+        </div>
+
+        <div class="catalog-category-block" id="block-sanitary">
+            <h3 class="category-lane-title">Sanitary Ware</h3>
+            <div class="product-scroll-wrap">
+                <div class="product-grid" id="sanitaryContainer"></div>
+            </div>
+        </div>
+
+        <div class="catalog-category-block" id="block-specialty-tiles">
+            <h3 class="category-lane-title">Specialty Tiles</h3>
+            <div class="product-scroll-wrap">
+                <div class="product-grid" id="specialtyTilesContainer"></div>
+            </div>
+        </div>
+
     </div>
 </section>
 
