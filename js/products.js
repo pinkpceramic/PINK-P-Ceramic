@@ -20,14 +20,11 @@ const activeStateQueryTokens = {
 
 const TARGET_WHATSAPP_NUMBER = "7777945744"; // Replace with your office phone number
 
-function routeLeadToWhatsAppChat(actionType, productTitle, productBrand,size, finish, category) {
+function routeLeadToWhatsAppChat(productTitle,size, finish, category) {
     let customTextBlueprint = "";
 
-    if (actionType === 'quote') {
-        customTextBlueprint = `Hello PINK P Ceramic, I would like to tiles please share your price related to this ${size} , ${category} and ${finish}`;
-    } else {
-        customTextBlueprint = `Hello PINK P Ceramic, I would like to tiles please share your price related to this ${size} , ${category} and ${finish}`;
-    }
+
+    customTextBlueprint = `Hello PINK P Ceramic, I would like to perches tiles please share your catalogue to this ${size} , ${category} and ${finish}`;
 
     // const secureUrlEncodedString = encodeURIComponent(customTextBlueprint);
     // const nativeWhatsAppGatewayUrl = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=${secureUrlEncodedString}`;
@@ -85,17 +82,17 @@ async function executeCatalogDataSync() {
 
         return `
             <article class="product-card">
-                <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">
+                <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">
                     <span class="product-badge">Pink-P Ceramic</span>
-                    <img src="${primaryImage}" alt="${item.name} Presentation" loading="lazy">
+                    <img src="${primaryImage}" alt="${item.name} Presentation">
                 </div>
                 <div class="product-meta">
                     <span class="product-brand">${item.category_name}</span>
-                    <h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">${item.name}</h3>
+                    <h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">${item.name}</h3>
                     ${item.size ?  `<div class="product-spec-row"><span>Dimensions:</span> <strong>${item.size}</strong></div>` : ''}
                     ${item.finish ? `<div class="product-spec-row"><span>Surface Style:</span> <strong style="text-transform:capitalize;">${item.finish}</strong></div>` : ''}
                     <div class="product-actions">
-                        <button class="btn-lux btn-secondary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">View Details</button>
+                        <button class="btn-lux btn-secondary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')">View more catalogue</button>
                     </div>
                 </div>
             </article>

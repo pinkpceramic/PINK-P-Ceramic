@@ -576,6 +576,167 @@
             }
         }
 
+
+        /* =========================================================================
+   LUXURY SHOWROOM ENTERPRISE INFOGRAPHIC BANNER STYLE SHEET
+   ========================================================================= */
+        .infographic-showroom-section {
+            width: 100%;
+            background-color: #0F172A; /* Midnight slate background matching your loader theme */
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .infographic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr; /* Clean asynchronous asymmetrical separation grid */
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* --- Content Panel Layouts --- */
+        .info-content-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .info-pretitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            color: #D4AF37; /* Elegant burnished accent gold token */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .info-main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            color: #FFFFFF;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        .info-description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: #94A3B8; /* Muted modern text balancing gray shade */
+            line-height: 1.6;
+            margin: 0 0 35px 0;
+        }
+
+        /* --- Live Metric Counting Elements Matrix --- */
+        .counter-metrics-grid {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .metric-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-number-wrapper {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-suffix {
+            color: #D4AF37; /* Secondary accent color tag */
+            margin-left: 2px;
+        }
+
+        .million-count{
+            font-size: 25px;
+        }
+
+        .metric-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .info-cta-btn {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* --- RIGHT PANEL: Portrait Video Wrapper Configuration --- */
+        .info-media-column {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .portrait-video-frame {
+            width: 100%;
+            max-width: 360px;
+            aspect-ratio: 9 / 16; /* Enforces strict luxury portrait boundaries */
+            background-color: #1E293B;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .luxury-portrait-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video fills portrait frame perfectly without bars */
+        }
+
+        .btn-video {
+            background: var(--color-primary);
+            color: #FFF;
+        }
+
+        .btn-video:hover {
+            background: transparent;
+            transform: translateX(5px);
+            box-shadow: 0 0 0 1px var(--color-primary);
+        }
+
+        /* =========================================================================
+           RESPONSIVE MEDIA CONSTRAINTS FOR TABLETS AND MOBILE VIEWPORTS
+           ========================================================================= */
+        @media (max-width: 968px) {
+            .infographic-container {
+                grid-template-columns: 1fr; /* Collapses split screen columns to single stack rows */
+                gap: 50px;
+            }
+            .info-content-column {
+                align-items: center;
+                text-align: center;
+            }
+            .counter-metrics-grid {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .info-main-title { font-size: 2rem; }
+            .counter-metrics-grid {
+                flex-direction: column; /* Stack data numbers vertically on thin screens */
+                gap: 30px;
+                align-items: center;
+            }
+            .metric-number-wrapper { font-size: 2.6rem; }
+            .portrait-video-frame {
+                max-width: 280px; /* Slims down player footbox profile on phones */
+            }
+        }
     </style>
 </head>
 <body>
@@ -694,6 +855,54 @@
     </div>
 </section>
 
+
+<section class="infographic-showroom-section">
+    <div class="infographic-container">
+
+        <div class="info-content-column">
+<!--            <span class="info-pretitle">Global Presence</span>-->
+            <h2 class="info-main-title">Expensive Collection</h2>
+            <p class="info-description">Experience architectural excellence in person. Walk through curated displays of premium large-format slabs, luxury bathware layouts, and designer geometric collections.</p>
+
+            <div class="counter-metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number-wrapper">
+                        <span class="live-counter-node" data-target="5000">0</span><span class="metric-suffix">+</span>
+                    </div>
+                    <span class="metric-label">Tiles Designs</span>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number-wrapper">
+                        <span class="live-counter-node" data-target="250">0</span><span class="metric-suffix">+</span>
+                    </div>
+                    <span class="metric-label">Our Projects</span>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number-wrapper">
+                        <span class="live-counter-node" data-target="1">0</span><span class="million-count">Million</span><span class="metric-suffix">+</span>
+                    </div>
+                    <span class="metric-label">Production Capacity Sq.ft. Per Day</span>
+                </div>
+            </div>
+
+            <a href="whatsapp://send?phone=7777945744&text=Hello%20Team%2C%20I%20would%20like%20to%20apply%20for%20a%20Pink%20P%20Ceramic%20dealership.%20Kindly%20provide%20me%20with%20the%20dealership%20process%2C%20investment%20details%2C%20and%20terms." class="btn-lux btn-video info-cta-btn">Inquire for dealership</a>
+<!--            <button onclick="window.routeLeadToWhatsAppChat('details', '${cleanName}','${item.size}' , '${item.finish}' , '${item.category_name}')" class="btn-lux btn-primary-lux info-cta-btn">Find Showroom Near Me</button>-->
+        </div>
+
+        <div class="info-media-column">
+            <div class="portrait-video-frame">
+                <video muted playsinline loop autoplay preload="auto" class="luxury-portrait-player">
+                    <source src="./assets/WhatsApp%20Video%202026-07-13%20at%206.08.26%20PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- Testimonials Section -->
 <section class="section-padding" id="reviews" style="background: var(--color-bg-soft);">
     <div class="container-lux">
@@ -769,6 +978,7 @@
 <script src="./js/products.js" type="module"></script>
 <script src="./js/reviews.js" type="module"></script>
 <script src="./js/contact.js" type="module"></script>
+<script src="./js/counter.js" type="module"></script>
 
 </body>
 </html>
