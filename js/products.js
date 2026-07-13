@@ -52,6 +52,7 @@ async function executeCatalogDataSync() {
     // Fetch unified dataset array from Supabase RPC
     const productJsonArray = await callCatalogRPC(activeStateQueryTokens);
 
+
     if (!productJsonArray || productJsonArray.length === 0) {
         const noRecordsMarkup = `<div style="text-align:center; padding: 40px 0; color: var(--color-text-muted); width: 100%;"><p style="font-size: 1.1rem; font-family:var(--font-display); color: var(--color-primary);">No Matching Collections Found</p></div>`;
         if (floorContainer) floorContainer.innerHTML = noRecordsMarkup;
@@ -139,8 +140,8 @@ async function executeCatalogDataSync() {
                     <div class="product-meta">
                         <span class="product-brand">${item.category_name}</span>
                         <h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">${item.name}</h3>
-                        ${item.size ? `<div class="product-spec-row"><span>Dimensions:</span> <strong>${item.size}</strong></div>` : ''}
-                        ${item.finish ? `<div class="product-spec-row"><span>Surface Style:</span> <strong style="text-transform:capitalize;">${item.finish}</strong></div>` : ''}
+                        ${item.size !== "NULL"? `<div class="product-spec-row"><span>Dimensions:</span> <strong>${item.size}</strong></div>` : ''}
+                        ${item.finish !== "NULL" ? `<div class="product-spec-row"><span>Surface Style:</span> <strong style="text-transform:capitalize;">${item.finish}</strong></div>` : ''}
                         <div class="product-actions">
                             <button class="btn-lux btn-secondary-lux btn-action" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">View more catalogue</button>
                         </div>
