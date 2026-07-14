@@ -102,7 +102,7 @@ function injectAndExecutePremiumLoader() {
 
         /* Micro Portrait Screen Layouts */
         @media (max-width: 320px) {
-            .loader-title { font-size: 1.15rem; letter-spacing: 2px; }
+            .loader-title { font-size: 1.2rem; letter-spacing: 2px; }
             .loader-subtitle { font-size: 0.55rem; letter-spacing: 1.5px; }
             .loader-video-display { width: 240px; }
         }
