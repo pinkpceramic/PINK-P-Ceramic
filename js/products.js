@@ -71,8 +71,7 @@ async function executeCatalogDataSync() {
         const catName = (item.category_name || '').toLowerCase();
         return catName.includes('floor') || catName.includes('body') ||
             catName.includes('charge') || catName.includes('parking') ||
-            catName.includes('nano') || catName.includes('porcelain') ||
-            catName.includes('step riser');
+            catName.includes('nano') || catName.includes('porcelain');
     });
 
     // 2. WALL TILES: Matches wall-tiles and elevatoin-tile (Elevation Tile)
@@ -92,8 +91,10 @@ async function executeCatalogDataSync() {
     const specialtyProducts = productJsonArray.filter(item => {
         const catName = (item.category_name || '').toLowerCase();
         return catName.includes('swimming') || catName.includes('mosaic') ||
-            catName.includes('moroccan') || catName.includes('outdoor') || catName.includes('special color');
+            catName.includes('moroccan') || catName.includes('outdoor') || catName.includes('special color') || catName.includes("step riser");
     });
+
+
 
     // =========================================================================
     // VISIBILITY CONTROL LAYER FOR TOP SELECT FILTERS
@@ -108,10 +109,12 @@ async function executeCatalogDataSync() {
         const pickedFilter = activeStateQueryTokens.category;
 
         // Match specific dropdown choice tokens directly to their parent structural lane blocks
-        const isFloorGroup = ['floor-tiles', 'porcelain', 'parking-tiles', 'double-charge', 'nano-tile', 'full-body', 'step-reser'].includes(pickedFilter);
+        const isFloorGroup = ['floor-tiles', 'porcelain', 'parking-tiles', 'double-charge', 'nano-tile', 'full-body'].includes(pickedFilter);
         const isWallGroup = ['wall-tiles', 'elevation-tile'].includes(pickedFilter);
         const isSanitaryGroup = ['sanitary', 'quartz-sink', 'luxury-bathware'].includes(pickedFilter);
-        const isSpecialtyGroup = ['swimmingpool-series', 'mosaic-tile', 'special-color-series-moroccan'].includes(pickedFilter);
+        const isSpecialtyGroup = ['swimmingpool-series', 'mosaic-tile', 'special-color-series-moroccan','step-riser'].includes(pickedFilter);
+
+
 
         if (blockFloor) blockFloor.style.display = isFloorGroup ? 'block' : 'none';
         if (blockWall) blockWall.style.display = isWallGroup ? 'block' : 'none';
@@ -135,7 +138,7 @@ async function executeCatalogDataSync() {
                 <article class="product-card">
                     <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">
                         <span class="product-badge">Pink-P Ceramic</span>
-                        <img src="${primaryImage}" alt="${item.name} Presentation">
+                        <img src="${primaryImage}" alt="PINKP CERAMICS ${cleanName} - ${item.finish} ${item.size} Ceramic Portfolio Presentation">
                     </div>
                     <div class="product-meta">
                         <span class="product-brand">${item.category_name}</span>
