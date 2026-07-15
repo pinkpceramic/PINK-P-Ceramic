@@ -84,8 +84,8 @@ async function executeCatalogDataSync() {
     // 3. SANITARY WARE: Matches sanitary, luxury-bathware, and quarz-sink (Quartz sink)
     const sanitaryProducts = productJsonArray.filter(item => {
         const catName = (item.category_name || '').toLowerCase();
-        return catName.includes('sanitary') || catName.includes('bathware') || catName.includes('sink');
-    });
+        return catName.includes('sanitary') || catName.includes('basins') || catName.includes('closet') || catName.includes('bathtub');
+    }).toSorted((a,b)=>a.category_name.localeCompare(b.category_name))
 
     // 4. SPECIALTY TILES: Matches swimmingpool-series, mosaic-tile, and special-color-series-moroccan
     const specialtyProducts = productJsonArray.filter(item => {
@@ -138,11 +138,11 @@ async function executeCatalogDataSync() {
                 <article class="product-card">
                     <div class="product-image-frame" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">
                         <span class="product-badge">Pink-P Ceramic</span>
-                        <img src="${primaryImage}" alt="PINKP CERAMICS ${cleanName} - ${item.finish} ${item.size} Ceramic Portfolio Presentation">
+                        <img src="${primaryImage}" alt="PINKP CERAMICS ${cleanName} - ${item.finish} ${item.size} Ceramic Portfolio Presentation" loading="lazy">
                     </div>
                     <div class="product-meta">
                         <span class="product-brand">${item.category_name}</span>
-                        <h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">${item.name}</h3>
+                        ${item.name !== "NULL" ? `<h3 class="product-title" onclick="window.routeLeadToWhatsAppChat('${cleanName}','${cleanSize}' , '${cleanFinish}' , '${cleanCategory}')">${item.name}</h3>` : ''}
                         ${item.size !== "NULL"? `<div class="product-spec-row"><span>Dimensions:</span> <strong>${item.size}</strong></div>` : ''}
                         ${item.finish !== "NULL" ? `<div class="product-spec-row"><span>Surface Style:</span> <strong style="text-transform:capitalize;">${item.finish}</strong></div>` : ''}
                         <div class="product-actions">
