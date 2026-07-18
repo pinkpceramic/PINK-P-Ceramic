@@ -51,7 +51,7 @@ async function executeCatalogDataSync() {
 
     // Fetch unified dataset array from Supabase RPC
     const productJsonArray = await callCatalogRPC(activeStateQueryTokens);
-
+    console.log(productJsonArray)
 
     if (!productJsonArray || productJsonArray.length === 0) {
         const noRecordsMarkup = `<div style="text-align:center; padding: 40px 0; color: var(--color-text-muted); width: 100%;"><p style="font-size: 1.1rem; font-family:var(--font-display); color: var(--color-primary);">No Matching Collections Found</p></div>`;
@@ -180,7 +180,8 @@ function attachInteractiveFilters() {
 
     if (selectCat) selectCat.addEventListener('change', (e) => { activeStateQueryTokens.category = e.target.value; pipelineRefresh(); });
     if (selectFinish) selectFinish.addEventListener('change', (e) => { activeStateQueryTokens.finish = e.target.value; pipelineRefresh(); });
-    if (selectSize) selectSize.addEventListener('change', (e) => { activeStateQueryTokens.size = e.target.value; pipelineRefresh(); });
+    if (selectSize) selectSize.addEventListener('change', (e) => { activeStateQueryTokens.size = e.target.value; console.log(e.target.value)
+    ;pipelineRefresh(); });
 }
 
 window.routeLeadToWhatsAppChat = routeLeadToWhatsAppChat;
